@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
 
+## Features
+- Fetches a list of items from a public API (GitHub Users API).
+- Sort items by different fields (e.g., `login`, `id`).
+- Filter items by specific fields using a dropdown menu.
+- Search functionality to filter items based on user input.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
