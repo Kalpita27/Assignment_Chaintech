@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Item List</h2>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Filter By</mat-label>
+      <mat-select [(value)]="filterField" (selectionChange)="filterItems()">
+        <mat-option *ngFor="let option of filterOptions" [value]="option.value">
+          {{option.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput [(ngModel)]="searchQuery" (input)="filterItems()" placeholder="Search...">
+    </mat-form-field>
+  
+    <mat-table [dataSource]="filteredItems">
+      <ng-container matColumnDef="login">
+        <mat-header-cell *matHeaderCellDef (click)="sortItems('login')"> Login </mat-header-cell>
+        <mat-cell *matCellDef="let item"> {{item.login}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef (click)="sortItems('id')"> ID </mat-header-cell>
+        <mat-cell *matCellDef="let item"> {{item.id}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="['login', 'id']"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['login', 'id'];"></mat-row>
+    </mat-table>
+  </div>
+  
